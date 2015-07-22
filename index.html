@@ -5,7 +5,6 @@
 	<script type="text/javascript" src="libs/jquery.js"></script><!-- jQuery -->
 	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css"><!-- bootstrapCSS -->
 	<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script><!-- bootstrap/jquery -->
-	<script src="libs/validator.js"></script>
 	<!-- end Libs -->
 	<!-- External Sheets -->
 	<script type="text/javascript" src="function.js"></script><!-- javascript/jquery -->
@@ -163,11 +162,11 @@
 		                        <div class="form-group">
 		                            <label for="sclass">Type of Request:</label><br>
 		                            <select class="form-control" id="srequest" required="required">
-		                                <option value="class-change">Class Change</option>
-		                                <option value="class-drop">Class Drop</option>
-		                                <option value="class-request">Class Request</option>
-		                                <option value="t-request">Theroy Request</option>
-		                                <option value="degree-change">Degree Change</option>
+		                                <option value="class-change">Change Class</option>
+		                                <option value="class-drop">Drop Class</option>
+		                                <option value="class-request">Request Class</option>
+		                                <option value="t-request">Theory Request</option>
+		                                <option value="degree-change">Change Degree</option>
 		                                <option value="other">Other</option>
 		                            </select>
 		                        </div>
@@ -179,7 +178,7 @@
 		                        <div class="form-group">
 		                            <label for="comment">Detailed Information About Request :</label><br>
 		                            <textarea class="form-control" rows="5" id="comment" pattern="^.{5,200}" required="required"></textarea>
-		                            <span class="comments-prompt">No more than 200 Characters</span>
+		                            <span class="comments-prompt help-block">No more than 200 Characters</span>
 		                        </div>
 		                    </div><!-- /. col-md-12 -->
 		                </div><!-- /. row -->

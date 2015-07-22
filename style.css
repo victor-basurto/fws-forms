@@ -27,6 +27,9 @@ body {
 }
 .error-message {
 	color: red;
+	font-style: italic;
+}
+.message {
 }
 /*---------------------------------------------------
 	FOOTER

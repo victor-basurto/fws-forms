@@ -1,21 +1,57 @@
 $(document).on('ready', function() {
 
 	/**
+	 * jQuery Plugin
+	 */
+	(function() {
+
+	    /**
+	     * Implement the functionality as a jQuery plugin.
+	     * @param {string} message The message to be displayed.
+	     * @param {string} messageType The type of message (error or success)
+	     */
+	    $.fn.controlMessage = function(message, messageType) {
+	        var $span = this
+	        			.parentsUntil(null, 'form-group')
+	        			.find('.error-message');
+
+	        // console.log('This', this);
+	        // console.log('Span', $span, $span[0]);
+
+	        // If no arguments are supplied, interpret it as 
+	        // clearing the message.
+	        if ( arguments.length === 0 ) {
+	           $span
+	               .removeClass('error')
+	               .removeClass('success')
+	               .html('');
+	        } else {
+	           $span
+	               .addClass(messageType)
+	               .html(message);
+	        }
+	        
+	        // Return `this`; the jQuery object
+	        return this;
+	    };
+	})();
+
+	/**
 	 * This function, will validate Student Name
 	 */
 	$('#sname').keyup(function() {
 	    // wrapping Student Name into $this
-	    var $this = $(this);
+	    var $this = $( this );
 	    
 	    // Username Validation
 	    if( !$this.val() ) { // if there's no value inside of the Name Field
-	        showMessage($this.parent(), 'Name is Required', 'error');
+	        $this.controlMessage('Name is Required', 'error');
 	        return false;
-	    } else if( !$this.val().match(/^[A-Za-z ]*$/) ) { // if the value containes special characters or numbers
-	    	showMessage($this.parent(), 'Only Letters', 'error');
+	    } else if( !$this.val().match(/^[A-Za-z ]*$/) ) { // if the value contains special characters or numbers
+	    	$this.controlMessage('Only Letters', 'error');
 	        return false;
-	    } else if($this.val().match(/^[A-Za-z ]*$/)) {
-	        clearMessage($this.parent()); // if the user type again, hide message
+	    } else if( $this.val() !== "" ) {
+	        $this.controlMessage(); // if the user type again, hide message
 	    }
 
 	});
@@ -25,16 +61,16 @@ $(document).on('ready', function() {
 	 */
 	$('#sid').keyup(function() {
 		// wrapping Student ID into $this
-		var $this = $(this);
+		var $this = $( this );
 
 		if(!$this.val()) { // if there's no value inside of the ID Field
-	    	showMessage($this.parent(), 'ID is Required', 'error');
+	    	$this.controlMessage('ID is Required', 'error');
 	        return false;
 	    } else if( !$this.val().match(/^[0-9]*$/) ) { // if the value containes special characters or letters
-	    	showMessage($this.parent(), 'Enter Only Numbers', 'error');
+	    	$this.controlMessage('Enter Only Numbers', 'error');
 	    	return false;
-	    } else {
-	    	clearMessage($this.parent()); // if the user type again, hide message
+	    } else if( $this.val() !== "" ) {
+	    	$this.controlMessage(); // if the user type again, hide message
 	    }
 	});
 
@@ -43,16 +79,20 @@ $(document).on('ready', function() {
 	 */
 	$('#semail').keyup(function() {
 		// wrapping Student ID into $this
-		var $this = $(this);
-		var $parent = $this.parent();
+		var $this = $( this );
+		var $parent = $this.parent('.form-group');
+
+		// console.log($this);
+		// console.log($parent);
 
 		if(!$this.val()) { // if there's no value inside of the Email
-	    	showMessage($parent.parent(), 'Enter Email', 'error');
+	    	$this.controlMessage( 'Enter Email', 'error');
 	        return false;
 	    } else if( !$this.val().match(/^[A-Za-z0-9_.-]*[A-Za-z0-9][A-Za-z0-9_.-]*$/) ) { // if the value contains Spaces
-	    	showMessage($parent.parent(), 'No Spaces', 'error');
-	    } else if ($this.val().match(/^[A-Za-z0-9_.-]*[A-Za-z0-9][A-Za-z0-9_.-]*$/)) {
-	    	clearMessage($parent.parent()); // if the user type again, hide message
+	    	$this.controlMessage('No Spaces', 'error');
+	    	return false;
+	    } else if ( $this.val() !== "" ) { // if the user type again, hide message
+	    	$this.controlMessage(); 
 	    }
 	});
 
@@ -61,17 +101,49 @@ $(document).on('ready', function() {
 	 */
 	$('#sphone').keyup(function() {
 		// wrapping Student ID into $this
-		var $this = $(this);
+		var $this = $( this );
 
 		if(!$this.val()) { // if there's no value inside of the Phone Number
-	    	showMessage($this.parent(), 'Enter Phone Number', 'error');
+	    	$this.controlMessage('Enter Phone Number', 'error');
 	        return false;
 	    } else if( !$this.val().match(/^[0-9]*$/) ) { // if the value contains Spaces
-	    	showMessage($this.parent(), 'Only Numbers and no spaces', 'error');
-	    } else if ($this.val().match(/^[0-9]*$/)) {
-	    	clearMessage($this.parent()); // if the user type again, hide message
+	    	$this.controlMessage('Only Numbers and no spaces', 'error');
+	    	return false;
+	    } else if ( $this.val() !== "" ) {
+	    	$this.controlMessage(); // if the user type again, hide message
 	    }
 	});
+
+	/**
+	 * This function, will validate Student Comments
+	 * The comment textarea is specific for 200 characters 
+	 * 
+	 */
+	// $('#comment').keyup(function() {
+	// 	// wrapping Student ID into $this
+	// 	var $this = $( this );
+	// 		formGroup = $this.parent();
+	// 		comment = $this.val();
+	// 		required = 30;
+	// 		left = required - comment.length;
+
+	// 		if( left > 0 ) {
+	// 			formGroup.find('.comments-prompt').replaceWith('<span class="help-block">Characters Left ' + left + '</span>');
+	// 			return true;
+	// 		}
+
+
+
+		// if(!$this.val()) { // if there's no value inside of the Phone Number
+	 //    	showMessage($this.parent(), 'Enter Phone Number', 'error');
+	 //        return false;
+	 //    } else if( !$this.val().match(/^[0-9]*$/) ) { // if the value contains Spaces
+	 //    	showMessage($this.parent(), 'Only Numbers and no spaces', 'error');
+	 //    } else if ( $this.val() !== "" ) {
+	 //    	clearMessage( $this.parent() ); // if the user type again, hide message
+	 //    }
+	// });
+
 
 	/**
 	 * Passing three arguments 
@@ -82,17 +154,17 @@ $(document).on('ready', function() {
 	 * Basically, we are telling the function to look over $formControl and find the class
 	 * with the name '.error-message' and add a new class called 'error' and apply the message there.
 	 */
-	function showMessage( $formControl, message, cls ) {
-	    $formControl.find('.error-message').addClass(cls).html('<i>' + message + '</i>');
-	}
+	// function showMessage( $formControl, message, cls ) {
+	//     $formControl.find('.error-message').addClass(cls).html('<i>' + message + '</i>');
+	// }
 
 	/**
 	 * Once the user typing again. This function will be executed and is going to look on
 	 * the $formControl and remove the class we added.
 	 */
-	function clearMessage( $formControl ) {
-	    $formControl.removeClass('error');
-	}
+	// function clearMessage( $formControl ) {
+	//     $formControl.removeClass('error');
+	// }
 
 	// $('#myButton').click(function(e) {
 
