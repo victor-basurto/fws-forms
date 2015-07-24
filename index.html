@@ -25,6 +25,14 @@
             </button>
         </div>
     </div>
+    <!-- Second Modal Button Technical Support -->
+    <div class="row">
+        <div class="col-md-3 col-xs-12 col-md-offset-4">
+            <button type="button" class="btn btn-default btn-lg mybtn" data-toggle="modal" data-target="#myModal02">
+                Technical Support
+            </button>
+        </div>
+    </div>
     
 
     <!-- First Model Triggered  Accademic Support -->
@@ -47,22 +55,22 @@
 		                <!-- End Date Picker -->
 		                <!-- Students Name Box -->
 		                <div class="row">
-		                    <div class="col-md-4 col-xs-12">
-		                        <div class="form-group">
-		                            <label for="sname">Student Full Name:</label><br>
-		                            <input type="text" class="form-control" id="sname" 
-		                            placeholder="John Doe" 
-		                            maxlength="30" 
-		                            pattern="^[A-Za-z ]*$"
-		                            required="required"> 
-		                            <span class="error-message"></span>
-		                        </div>
-		                    </div>
+							<div class="col-md-4 col-xs-12">
+								<div class="form-group">
+								    <label for="sname">Student Full Name:</label><br>
+								    <input type="text" class="form-control sname" id="student-name" 
+								    placeholder="John Doe" 
+								    maxlength="30" 
+								    pattern="^[A-Za-z ]*$"
+								    required="required"> 
+								    <span class="error-message"></span>
+								</div> 
+							</div>
 		                    <!-- Students School ID Box -->    
 		                    <div class="col-md-4 col-xs-12">
 		                        <div class="form-group">
 		                            <label for="sid">Student ID:</label><br>
-		                            <input type="text" class="form-control" id="sid" 
+		                            <input type="text" class="form-control sid" id="student-id"
 		                            maxlength="8" 
 		                            placeholder="Enter 8-Digits Student ID" 
 		                            pattern="^[0-9]{8}$" 
@@ -76,7 +84,7 @@
 		                        <div class="form-group">
 		                            <label for="semail">Student Email:</label><br>
 		                            <div class="input-group">
-			                            <input type="text" id="semail" class="form-control" 
+			                            <input type="text" class="form-control semail" id="student-email"
 			                            placeholder="Email" 
 			                            aria-describedby="basic-addon2"  
 			                            pattern="^[A-Za-z0-9_]*[A-Za-z0-9][A-Za-z0-9_]*$"
@@ -92,10 +100,10 @@
 		                    <div class="col-md-4 col-xs-12">
 		                        <div class="form-group">
 		                            <label for="sphone">Contact Phone Number:</label><br>
-		                            <input type="tel" class="form-control" id="sphone" 
+		                            <input type="tel" class="form-control sphone" id="student-phone"
 		                            maxlength="10" 
 		                            placeholder="6195554444" 
-									pattern="^[0-9]*$" 
+									pattern="^[0-9]{10}$" 
 		                            required="required">
 		                            <span class="error-message"></span>
 		                        </div>
@@ -104,7 +112,8 @@
 		                    <div class="col-md-4 col-xs-12">
 		                        <div class="form-group">
 		                            <label for="sdegree">Student Degree:</label><br>
-		                            <select required="required" class="form-control" id="sdegree">
+		                            <select required="required" class="form-control sdegree" id="student-degree">
+		                            	<option value="">Please Select One</option>
 		                                <option value="associates">Associates</option>
 		                                <option value="bachelors">Bachelor's</option>
 		                            </select>
@@ -114,7 +123,8 @@
 		                    <div class="col-md-4 col-xs-12">
 		                        <div class="form-group">
 		                            <label for="sprogram">Program:</label><br>
-		                            <select class="form-control" id="sprogram" required="required">
+		                            <select class="form-control sprogram" id="student-program" required="required">
+		                            	<option value="">Please Select One</option>
 		                                <option value="elec">Electronics</option>
 		                                <option value="sdv">Software Development</option>
 		                                <option value="nsa">NSA</option>
@@ -129,6 +139,7 @@
 		                        <div class="form-group">
 		                            <label for="squarter">Current Quarter:</label><br>
 		                            <select class="form-control" id="squarter" required="required">
+		                                <option value="">Please Select One</option>
 		                                <option value="first-q">1 Quarter</option>
 		                                <option value="second-q">2 Quarter</option>
 		                                <option value="third-q">3 Quarter</option>
@@ -144,6 +155,7 @@
 		                        <div class="form-group">
 		                            <label for="scourse">Request Service From:</label><br>
 		                            <select class="form-control" id="scourse" required="required">
+		                                <option value="">Select One</option>
 		                                <option value="dean">Dean</option>
 		                                <option value="it-chair">IT Chairman</option>
 		                                <option value="draf-chair">Drafting & Design Chairman</option>
@@ -159,6 +171,7 @@
 		                        <div class="form-group">
 		                            <label for="sclass">Type of Request:</label><br>
 		                            <select class="form-control" id="srequest" required="required">
+		                                <option value="">Select One</option>
 		                                <option value="class-change">Change Class</option>
 		                                <option value="class-drop">Drop Class</option>
 		                                <option value="class-request">Request Class</option>
@@ -174,14 +187,187 @@
 		                    <div class="col-md-12">
 		                        <div class="form-group">
 		                            <label for="comment">Detailed Information About Request :</label><br>
-		                            <textarea class="form-control" rows="5" id="comment" pattern="^.{5,200}" required="required"></textarea>
-		                            <span class="comments-prompt help-block">No more than 200 Characters</span>
+		                            <textarea class="form-control comment" rows="5" id="student-comment" 
+		                            			maxlength="300"
+		                            			pattern="^.{5,300}" 
+		                            			required="required"></textarea>
+		                            <span class="comments-prompt">No more than 300 Characters</span>
 		                        </div>
 		                    </div><!-- /. col-md-12 -->
 		                </div><!-- /. row -->
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-		                    <button type="submit" id="myButton" class="btn btn-primary">Submit</button>
+		                    <button type="submit" id="myButton" class="btn btn-primary submitButton">Submit</button>
+		                </div><!-- modal-footer -->
+	                </form><!-- /. form -->
+                </div><!-- /. modal-body -->
+            </div><!-- /. modal-content -->
+        </div><!-- /. modal-dialog -->
+    </div><!-- /. modal -->
+    <!-- end of Modal --> 
+
+
+	<!-- Second Modal Triggered  Technical Support -->
+    <div class="modal fade " id="myModal02" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Technical Support Form</h4>
+                </div>
+                <div class="modal-body">
+	                <form data-togle="validator" role="form">
+		                <!-- Date Picker -->
+		                <div class="row">
+		                    <div class="col-md-3 col-xs-12 col-md-offset-9">
+		                        <label for="dpicker">Select the Date:</label><br>
+		                        <input type="date" class="form-control" required="required">
+		                    </div>
+		                </div><!-- /. row -->
+		                <!-- End Date Picker -->
+		                <!-- Students Name Box -->
+		                <div class="row">
+		                    <div class="col-md-4 col-xs-12">
+		                        <div class="form-group">
+		                            <label for="sname">Student Full Name:</label><br>
+		                            <input type="text" class="form-control sname" id="student-name"
+		                            placeholder="John Doe" 
+		                            maxlength="30" 
+		                            pattern="^[A-Za-z ]*$"
+		                            required="required"> 
+		                            <span class="error-message"></span>
+		                        </div>
+		                    </div>
+		                    <!-- Students School ID Box -->    
+		                    <div class="col-md-4 col-xs-12">
+		                        <div class="form-group">
+		                            <label for="sid">Student ID:</label><br>
+		                            <input type="text" class="form-control sid" id="student-id" 
+		                            maxlength="8" 
+		                            placeholder="Enter 8-Digits Student ID" 
+		                            pattern="^[0-9]{8}$" 
+		                            required="required">
+		                            <span class="error-message"></span>
+		                        </div>
+		                    </div>
+		                    <!--Students Email -->
+		                    <!-- ^[a-z0-9](\.?[a-z0-9])+@email\.itt-tech\.edu$ for an ITT email -->
+		                    <div class="col-md-4 col-xs-12">
+		                        <div class="form-group">
+		                            <label for="semail">Student Email:</label><br>
+		                            <div class="input-group">
+			                            <input type="text" id="student-email" class="form-control semail" 
+			                            placeholder="Email" 
+			                            aria-describedby="basic-addon2"  
+			                            pattern="^[A-Za-z0-9_]*[A-Za-z0-9][A-Za-z0-9_]*$"
+			                            required="required">
+		                            	<div class="input-group-addon">@email.itt-tech.edu</div>
+		                            </div>
+		                            <span class="error-message"></span>
+		                        </div>
+		                    </div>
+		                </div>
+		                <!-- Student Contact Number -->
+		                <div class="row">
+		                    <div class="col-md-4 col-xs-12">
+		                        <div class="form-group">
+		                            <label for="sphone">Contact Phone Number:</label><br>
+		                            <input type="tel" class="form-control sphone" id="student-phone" 
+		                            maxlength="10" 
+		                            placeholder="6195554444" 
+									pattern="^[0-9]{10}$" 
+		                            required="required">
+		                            <span class="error-message"></span>
+		                        </div>
+		                    </div>
+		                    <!-- Students Degree -->
+		                    <div class="col-md-4 col-xs-12">
+		                        <div class="form-group">
+		                            <label for="sdegree">Student Degree:</label><br>
+		                            <select required="required" class="form-control sdegree" id="student-degree">
+		                            	<option value="">Please Select One</option>
+		                                <option value="associates">Associates</option>
+		                                <option value="bachelors">Bachelor's</option>
+		                            </select>
+		                        </div>
+		                    </div>
+		                    <!-- Students Program -->
+		                    <div class="col-md-4 col-xs-12">
+		                        <div class="form-group">
+		                            <label for="sprogram">Program:</label><br>
+		                            <select class="form-control sprogram" id="student-program" required="required">
+		                            	<option value="">Please Select One</option>
+		                                <option value="elec">Electronics</option>
+		                                <option value="sdv">Software Development</option>
+		                                <option value="nsa">NSA</option>
+		                                <option value="proj-manag">Project Managment</option>
+		                            </select>
+		                        </div>
+		                    </div>
+		                </div>
+		                <!-- Office 365 -->
+		                <div class="row">
+		                    <div class="col-md-4 col-xs-12">
+		                    	 <div class="form-group">
+		                    	 	<label for="sclass">Office 365 (Check all that apply):</label><br>  
+									<label><input type="checkbox" value="">Downloading</label><br>
+									<label><input type="checkbox" value="">Installing</label><br>
+									<label><input type="checkbox" value="">Opening</label><br>
+									<label><input type="checkbox" value="">Not Valid User Name</label><br>
+									<label><input type="checkbox" value="">Blocked</label><br>
+									<label><input type="checkbox" value="">Software Issues</label><br>
+									<label><input type="checkbox" value="">No License</label><br>
+								</div>
+							</div>
+						<!-- FWS Request -->
+						<div class="col-md-4 col-xs-12">
+		                    	 <div class="form-group">
+		                    	 	<label for="sclass">Rob Request (Check all that apply):</label><br> 
+		                    	 	<label><input type="checkbox" value="">Wipe & Swipe</label><br>
+									<label><input type="checkbox" value="">Virus</label><br>
+									<label><input type="checkbox" value="">Pop-ups</label><br>
+									<label><input type="checkbox" value="">Browser Issues</label><br>
+									<label><input type="checkbox" value="">Running Slow</label><br>
+									<label><input type="checkbox" value="">Downlading Software</label><br>
+									<label><input type="checkbox" value="">Dream Spark Issues</label><br>
+									<label><input type="checkbox" value="">VM Ware Issues</label><br>
+
+								</div>
+							</div>
+							<!-- FWS Request -->
+						<div class="col-md-4 col-xs-12">
+		                    	 <div class="form-group">
+		                    	 	<label for="sclass">LRC Request (Check all that apply):</label><br>  
+									<label><input type="checkbox" value="">Student Email Issues</label><br>
+									<label><input type="checkbox" value="">Student E-Books</label><br>
+									<label><input type="checkbox" value="">Student Networking Issues</label><br>
+									<label><input type="checkbox" value="">Student Wireless Issues</label><br>
+									<label><input type="checkbox" value="">Student Portal</label><br>
+									<label><input type="checkbox" value="">Student Password Reset</label><br>
+									<label><input type="checkbox" value="">Student Virtual Libary</label><br>
+									<label><input type="checkbox" value="">Student E-Portfolio</label><br>
+								</div>
+							</div>
+						</div>
+							
+
+
+		                <!-- Students Comment Box -->
+		                <div class="row">
+		                    <div class="col-md-12">
+		                        <div class="form-group">
+		                            <label for="comment">Detailed Information About Request :</label><br>
+		                            <textarea class="form-control comment" rows="5" id="student-comment" 
+		                            maxlength="300"
+		                            pattern="^.{5,300}" 
+		                            required="required"></textarea>
+		                            <span class="comments-prompt">No more than 300 Characters</span>
+		                        </div>
+		                    </div><!-- /. col-md-12 -->
+		                </div><!-- /. row -->
+		                <div class="modal-footer">
+		                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		                    <button type="submit" id="myButton" class="btn btn-primary submitButton">Submit</button>
 		                </div><!-- modal-footer -->
 	                </form><!-- /. form -->
                 </div><!-- /. modal-body -->

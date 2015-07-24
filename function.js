@@ -3,7 +3,7 @@ $(document).on('ready', function() {
 	/**
 	 * This function, will validate Student Name
 	 */
-	$('#sname').keyup(function() {
+	$('.sname').keyup(function() {
 	    // wrapping Student Name into $this
 	    var $this = $( this );
 	    
@@ -23,7 +23,7 @@ $(document).on('ready', function() {
 	/**
 	 * This function, will validate Student ID
 	 */
-	$('#sid').keyup(function() {
+	$('.sid').keyup(function() {
 		// wrapping Student ID into $this
 		var $this = $( this );
 
@@ -41,7 +41,7 @@ $(document).on('ready', function() {
 	/**
 	 * This function, will validate Student Email
 	 */
-	$('#semail').keyup(function() {
+	$('.semail').keyup(function() {
 		// wrapping Student ID into $this
 		var $this = $( this );
 		var $parent = $this.parent('.form-group');
@@ -63,7 +63,7 @@ $(document).on('ready', function() {
 	/**
 	 * This function, will validate Student PhoneNumber
 	 */
-	$('#sphone').keyup(function() {
+	$('.sphone').keyup(function() {
 		// wrapping Student ID into $this
 		var $this = $( this );
 
@@ -80,34 +80,24 @@ $(document).on('ready', function() {
 
 	/**
 	 * This function, will validate Student Comments
-	 * The comment textarea is specific for 200 characters 
+	 * The comment textarea is specific for 300 characters 
 	 * 
 	 */
-	// $('#comment').keyup(function() {
-	// 	// wrapping Student ID into $this
-	// 	var $this = $( this );
-	// 		formGroup = $this.parent();
-	// 		comment = $this.val();
-	// 		required = 30;
-	// 		left = required - comment.length;
+	$('.comment').keyup(function () {
+		var max = 300;
+		// hold the value length
+		var len = $(this).val().length;
+		if (len >= max) {
+			$('.comments-prompt').text(' you have reached the limit');
+		} else {
+			var char = max - len;
+			$('.comments-prompt').text(char + ' characters left');
+		}
+	});
 
-	// 		if( left > 0 ) {
-	// 			formGroup.find('.comments-prompt').replaceWith('<span class="help-block">Characters Left ' + left + '</span>');
-	// 			return true;
-	// 		}
-
-
-
-		// if(!$this.val()) { // if there's no value inside of the Phone Number
-	 //    	showMessage($this.parent(), 'Enter Phone Number', 'error');
-	 //        return false;
-	 //    } else if( !$this.val().match(/^[0-9]*$/) ) { // if the value contains Spaces
-	 //    	showMessage($this.parent(), 'Only Numbers and no spaces', 'error');
-	 //    } else if ( $this.val() !== "" ) {
-	 //    	clearMessage( $this.parent() ); // if the user type again, hide message
-	 //    }
-	// });
-
+	$('.submitButton').click(function() {
+		window.open('details.html');
+	});
 
 	/**
 	 * Passing three arguments 
@@ -118,22 +108,6 @@ $(document).on('ready', function() {
 	 * Basically, we are telling the function to look over $formControl and find the class
 	 * with the name '.error-message' and add a new class called 'error' and apply the message there.
 	 */
-	// function showMessage( $formControl, message, cls ) {
-	//     $formControl.find('.error-message').addClass(cls).html('<i>' + message + '</i>');
-	// }
-
-	/**
-	 * Once the user typing again. This function will be executed and is going to look on
-	 * the $formControl and remove the class we added.
-	 */
-	// function clearMessage( $formControl ) {
-	//     $formControl.removeClass('error');
-	// }
-
-	// $('#myButton').click(function(e) {
-
-	// 	e.preventDefault();
-	// 	// alert('your form is submitted');
-	// });
+	
 
 });

@@ -3,6 +3,13 @@ body {
 	font-family: cursive;
 }
 
+.jumbotron h1, .jumbotron p {
+	font-family: verdana;
+}
+#give-margin {
+	margin-left: 50px;
+}
+
 
 
 /*---------------------------------------------------
